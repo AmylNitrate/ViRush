@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{02715437-F39C-E676-CC12-66495E9515C1}") = "parasitedefense", "Assembly-CSharp.csproj", "{49447EBF-FE62-6619-BC8A-8AFF80A838A0}"
+EndProject
+Project("{02715437-F39C-E676-CC12-66495E9515C1}") = "parasitedefense", "Assembly-CSharp-Editor.csproj", "{6C4B0E16-E4E3-26BD-88E1-5E71A8F07EEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49447EBF-FE62-6619-BC8A-8AFF80A838A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49447EBF-FE62-6619-BC8A-8AFF80A838A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49447EBF-FE62-6619-BC8A-8AFF80A838A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49447EBF-FE62-6619-BC8A-8AFF80A838A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C4B0E16-E4E3-26BD-88E1-5E71A8F07EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C4B0E16-E4E3-26BD-88E1-5E71A8F07EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C4B0E16-E4E3-26BD-88E1-5E71A8F07EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C4B0E16-E4E3-26BD-88E1-5E71A8F07EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
