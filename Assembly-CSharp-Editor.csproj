@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6C4B0E16-E4E3-26BD-88E1-5E71A8F07EEB}</ProjectGuid>
+    <ProjectGuid>{FBCD1C94-4BD7-F9B4-4A3C-4155FD60461C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -99,31 +99,31 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween43.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween46.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween50.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween50.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/Editor/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="BouncyCastle_GameSparks">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/BouncyCastle_GameSparks.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/BouncyCastle_GameSparks.dll</HintPath>
  </Reference>
  <Reference Include="GameSparks.Api">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/GameSparks.Api.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/GameSparks.Api.dll</HintPath>
  </Reference>
  <Reference Include="GameSparks">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/GameSparks.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/GameSparks.dll</HintPath>
  </Reference>
  <Reference Include="GameSparksRT">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/GameSparksRT.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/GameSparksRT.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -134,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{49447EBF-FE62-6619-BC8A-8AFF80A838A0}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{C997311C-5D48-C74E-6418-428D59554D38}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -84,22 +84,18 @@ public class GameController : MonoBehaviour {
 		//if all spawned virus' have been destroyed, then reset and go to next wave
 		if (Data.control.SpawnDestroy >= spawnAmount) 
 		{
-			ResetWaypointAndBarrel ();
-
-			intermission.SetActive (true);
-
-			ResetTurret ();
-			Debug.Log ("Ovir: " + Data.control.Ovir);
-			Debug.Log ("Bvir: " + Data.control.Bvir);
-			Debug.Log ("Gvir: " + Data.control.Gvir);
-			Debug.Log ("Pvir: " + Data.control.Pvir);
+			
 			Data.control.series1Data.Add (new Vector2(Data.control.Wave, (Data.control.Ovir/40) * 100));
 			Data.control.series2Data.Add (new Vector2(Data.control.Wave, (Data.control.Bvir/40) * 100));
 			Data.control.series3Data.Add (new Vector2(Data.control.Wave, (Data.control.Gvir/40) * 100));
 			Data.control.series4Data.Add (new Vector2(Data.control.Wave, (Data.control.Pvir/40) * 100));
 
-			ResetValues ();
+			Data.control.SaveToGameSparks ();
 
+			ResetWaypointAndBarrel ();
+			intermission.SetActive (true);
+			ResetTurret ();
+			ResetValues ();
 			Data.control.Wave++;
 
 
@@ -108,6 +104,13 @@ public class GameController : MonoBehaviour {
 		//if 20 virus' get through your defence, then reset entire wave
 		if (Data.control.LossAmount <= 0) 
 		{
+			Data.control.series1Data.Add (new Vector2(Data.control.Wave, (Data.control.Ovir/40) * 100));
+			Data.control.series2Data.Add (new Vector2(Data.control.Wave, (Data.control.Bvir/40) * 100));
+			Data.control.series3Data.Add (new Vector2(Data.control.Wave, (Data.control.Gvir/40) * 100));
+			Data.control.series4Data.Add (new Vector2(Data.control.Wave, (Data.control.Pvir/40) * 100));
+
+			Data.control.SaveToGameSparks();
+
 			if (Data.control.Lives <= 1) {
 				ResetWaypointAndBarrel ();
 				ResetTurret ();
@@ -124,7 +127,9 @@ public class GameController : MonoBehaviour {
 				GameObject.Find ("Back_Button1").SetActive (false);
 				GameObject.Find ("Skip").SetActive (false);
 
-			} else {
+			} 
+			else 
+			{
 				ResetWaypointAndBarrel ();
 				ResetTurret ();
 				warning.SetActive (true);

@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{49447EBF-FE62-6619-BC8A-8AFF80A838A0}</ProjectGuid>
+    <ProjectGuid>{C997311C-5D48-C74E-6418-428D59554D38}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -142,28 +142,28 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween43.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween46.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Graph_Maker/DOTween/DOTween50.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Graph_Maker/DOTween/DOTween50.dll</HintPath>
  </Reference>
  <Reference Include="BouncyCastle_GameSparks">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/BouncyCastle_GameSparks.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/BouncyCastle_GameSparks.dll</HintPath>
  </Reference>
  <Reference Include="GameSparks.Api">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/GameSparks.Api.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/GameSparks.Api.dll</HintPath>
  </Reference>
  <Reference Include="GameSparks">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/GameSparks.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/GameSparks.dll</HintPath>
  </Reference>
  <Reference Include="GameSparksRT">
- <HintPath>C:/Users/michaelk/Documents/parasitedefense/Assets/Plugins/GameSparksRT.dll</HintPath>
+ <HintPath>C:/Users/michaelk/Documents/GitHub/ViRush/Assets/Plugins/GameSparksRT.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

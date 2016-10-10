@@ -104,9 +104,8 @@ public class Data : MonoBehaviour {
 		_ViRushData.BSurv = BlueVirus;
 		_ViRushData.PSurv = PinkVirus;
 
-		_ViRushData.spawnCounter = SpawnCount;
-		_ViRushData.lossAmount = LossAmount;
 		_ViRushData.lives = Lives;
+		_ViRushData.spawnCounter = SpawnCount;
 
 		_ViRushData.series1Data = series1Data;
 		_ViRushData.series2Data = series2Data;
@@ -132,22 +131,22 @@ public class Data : MonoBehaviour {
 [Serializable]
 class PlayerData
 {
-	public int wave, points;
+	public string playerId;
 
-	//stores number of virus' surviving a wave
-	public int OSurv, BSurv, GSurv, PSurv;
+	public int wave, points;
 
 	//stores number of virus' spawned in wave
 	public float OSpawn, BSpawn, GSpawn, PSpawn;
+
+	//stores number of virus' surviving a wave
+	public int OSurv, BSurv, GSurv, PSurv;
 
 	//stores the wave# and Prop of Viruses for each virus.
 	public List<Vector2> series1Data, series2Data, series3Data, series4Data;
 
 	public int spawnCounter;
 
-	public int lossAmount, lives;
-
-	public string playerId;
+	public int lives;
 
 
 }
