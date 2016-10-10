@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class VirusSelect : MonoBehaviour {
 
-	public GameObject SlotOne, SlotTwo, SlotThree, SlotFour, SlotFive;
-	public GameObject SOne, STwo, SThree, SFour, SFive;
+	public GameObject SlotOne, SlotTwo, SlotThree, SlotFour;
+	public GameObject SOne, STwo, SThree, SFour;
 
-	int slotNumber = 5;
+	int slotNumber = 4;
 	public int slotAvailable;
 
 	public int OStrength, BStrength, GStrength, PStrength;
@@ -24,8 +24,6 @@ public class VirusSelect : MonoBehaviour {
 		SThree.gameObject.GetComponent<Image> ().color = new Color32 (0, 0, 0, 0);
 		SlotFour.gameObject.GetComponent<Image> ().color = new Color32 (0, 0, 0, 0);
 		SFour.gameObject.GetComponent<Image> ().color = new Color32 (0, 0, 0, 0);
-		SlotFive.gameObject.GetComponent<Image> ().color = new Color32 (0, 0, 0, 0);
-		SFive.gameObject.GetComponent<Image> ().color = new Color32 (0, 0, 0, 0);
 	}
 
 	void Upgrade()
@@ -45,9 +43,6 @@ public class VirusSelect : MonoBehaviour {
 		}else if (slotAvailable == 4) {
 			SlotFour.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
 			SFour.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-		}else if (slotAvailable == 5) {
-			SlotFive.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-			SFive.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
 		}
 	}
 
@@ -86,19 +81,8 @@ public class VirusSelect : MonoBehaviour {
 				SThree.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
 				SlotFour.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
 				SFour.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-			} else if (slotAvailable == 5) {
-				SlotOne.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SOne.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SlotTwo.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				STwo.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SlotThree.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SThree.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SlotFour.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SFour.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SlotFive.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-				SFive.gameObject.GetComponent<Image> ().color = new Color32 (255, 255, 255, 200);
-			}
-			slotNumber = 5;
+			} 
+			slotNumber = 4;
 			BStrength = 0;
 			GStrength = 0;
 			OStrength = 0;
@@ -108,7 +92,7 @@ public class VirusSelect : MonoBehaviour {
 		}
 
 		if (virus == 1) {
-			if (slotNumber == 5) 
+			if (slotNumber == 4) 
 			{
 				if (slotAvailable >= 1) 
 				{
@@ -118,7 +102,7 @@ public class VirusSelect : MonoBehaviour {
 					OStrength++;
 				}
 			} 
-			else if (slotNumber == 4) 
+			else if (slotNumber == 3) 
 			{
 				if (slotAvailable >= 2) 
 				{
@@ -128,7 +112,7 @@ public class VirusSelect : MonoBehaviour {
 					OStrength++;
 				}
 			} 
-			else if (slotNumber == 3) 
+			else if (slotNumber == 2) 
 			{
 				if (slotAvailable >= 3) 
 				{
@@ -138,7 +122,7 @@ public class VirusSelect : MonoBehaviour {
 					OStrength++;
 				}
 			} 
-			else if (slotNumber == 2) 
+			else if (slotNumber == 1) 
 			{
 				if (slotAvailable >= 4) 
 				{
@@ -148,134 +132,103 @@ public class VirusSelect : MonoBehaviour {
 					OStrength++;
 				}
 			} 
-			else if (slotNumber == 1) 
-			{
-				if (slotAvailable >= 5) 
-				{
-					SlotFive.gameObject.GetComponent<Image> ().color = new Color32 (241, 90, 36, 200);
-					SFive.gameObject.GetComponent<Image> ().color = new Color32 (241, 90, 36, 200);
-					slotNumber--;
-					OStrength++;
-				}
-			}
 		
 		}
 
 		if (virus == 2) {
-			if (slotNumber == 5) {
+			if (slotNumber == 4) {
 				if (slotAvailable >= 1) {
 					SlotOne.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					SOne.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					slotNumber--;
 					BStrength++;
 				}
-			} else if (slotNumber == 4) {
+			} else if (slotNumber == 3) {
 				if (slotAvailable >= 2) {
 					SlotTwo.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					STwo.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					slotNumber--;
 					BStrength++;
 				}
-			} else if (slotNumber == 3) {
+			} else if (slotNumber == 2) {
 				if (slotAvailable >= 3) {
 					SlotThree.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					SThree.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					slotNumber--;
 					BStrength++;
 				}
-			} else if (slotNumber == 2) {
+			} else if (slotNumber == 1) {
 				if (slotAvailable >= 4) {
 					SlotFour.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					SFour.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
 					slotNumber--;
 					BStrength++;
 				}
-			} else if (slotNumber == 1) {
-				if (slotAvailable >= 5) {
-					SlotFive.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
-					SFive.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
-					slotNumber--;
-					BStrength++;
-				}
-			}
+			} 
 
 		}
 		if (virus == 3) {
-			if (slotNumber == 5) {
+			if (slotNumber == 4) {
 				if (slotAvailable >= 1) {
 					SlotOne.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					SOne.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					slotNumber--;
 					GStrength++;
 				}
-			} else if (slotNumber == 4) {
+			} else if (slotNumber == 3) {
 				if (slotAvailable >= 2) {
 					SlotTwo.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					STwo.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					slotNumber--;
 					GStrength++;
 				}
-			} else if (slotNumber == 3) {
+			} else if (slotNumber == 2) {
 				if (slotAvailable >= 3) {
 					SlotThree.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					SThree.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					slotNumber--;
 					GStrength++;
 				}
-			} else if (slotNumber == 2) {
+			} else if (slotNumber == 1) {
 				if (slotAvailable >= 3) {
 					SlotFour.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					SFour.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
 					slotNumber--;
 					GStrength++;
 				}
-			} else if (slotNumber == 1) {
-				if (slotAvailable >= 5) {
-					SlotFive.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
-					SFive.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
-					slotNumber--;
-					GStrength++;
-				}
-			}
+			} 
 
 		}
 		if (virus == 4) {
-			if (slotNumber == 5) {
+			if (slotNumber == 4) {
 				if (slotAvailable >= 1) {
 					SlotOne.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					SOne.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					slotNumber--;
 					PStrength++;
 				}
-			} else if (slotNumber == 4) {
+			} else if (slotNumber == 3) {
 				if (slotAvailable >= 2) {
 					SlotTwo.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					STwo.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					slotNumber--;
 					PStrength++;
 				}
-			} else if (slotNumber == 3) {
+			} else if (slotNumber == 2) {
 				if (slotAvailable >= 3) {
 					SlotThree.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					SThree.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					slotNumber--;
 					PStrength++;
 				}
-			} else if (slotNumber == 2) {
+			} else if (slotNumber == 1) {
 				if (slotAvailable >= 4) {
 					SlotFour.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					SFour.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
 					slotNumber--;
 					PStrength++;
 				}
-			} else if (slotNumber == 1) {
-				if (slotAvailable >= 5) {
-					SlotFive.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
-					SFive.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
-					slotNumber--;
-					PStrength++;
-				}
-			}
+			} 
 		}
 
 	}

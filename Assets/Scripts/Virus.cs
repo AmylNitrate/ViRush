@@ -18,13 +18,8 @@ public class Virus : MonoBehaviour
 	void Start()
 	{
 		lastWaypointSwitchTime = Time.time;
-		if(Data.control.Wave < 10)
-		{
-			health = 50;
-		}
-		else if (Data.control.Wave >= 10) {
-			health = 100;
-		}
+		health = 60 + (Data.control.Wave * 5);
+		Debug.Log ("Virus Health = " + health);
 	}
 
 	void Update()
@@ -50,6 +45,7 @@ public class Virus : MonoBehaviour
 				if (gameObject.name.Equals ("OrangeVirus(Clone)")) 
 				{
 					Data.control.OrangeVirus++;
+					Data.control.Ovir++;
 					Destroy (gameObject);
 					Data.control.SpawnDestroy++;
 					Data.control.LossAmount--;
@@ -57,6 +53,7 @@ public class Virus : MonoBehaviour
 				if (gameObject.name.Equals ("BlueVirus(Clone)")) 
 				{
 					Data.control.BlueVirus++;
+					Data.control.Bvir++;
 					Destroy (gameObject);
 					Data.control.SpawnDestroy++;
 					Data.control.LossAmount--;
@@ -64,6 +61,7 @@ public class Virus : MonoBehaviour
 				if (gameObject.name.Equals ("GreenVirus(Clone)")) 
 				{
 					Data.control.GreenVirus++;
+					Data.control.Gvir++;
 					Destroy (gameObject);
 					Data.control.SpawnDestroy++;
 					Data.control.LossAmount--;
@@ -71,6 +69,7 @@ public class Virus : MonoBehaviour
 				if (gameObject.name.Equals ("PinkVirus(Clone)")) 
 				{
 					Data.control.PinkVirus++;
+					Data.control.Pvir++;
 					Destroy (gameObject);
 					Data.control.SpawnDestroy++;
 					Data.control.LossAmount--;
@@ -86,6 +85,25 @@ public class Virus : MonoBehaviour
 			Data.control.SpawnDestroy++;
 			deathPos = gameObject.transform.position;
 			Instantiate (splat, deathPos, Quaternion.Euler(0,0,90));
+
+			if (gameObject.name.Equals ("OrangeVirus(Clone)")) 
+			{
+				Data.control.Ovir++;
+			}
+			if (gameObject.name.Equals ("BlueVirus(Clone)")) 
+			{
+				Data.control.Bvir++;
+			}
+			if (gameObject.name.Equals ("GreenVirus(Clone)")) 
+			{
+				Data.control.Gvir++;
+			}
+			if (gameObject.name.Equals ("PinkVirus(Clone)")) 
+			{
+				Data.control.Pvir++;
+			}
+
+
 			Destroy (gameObject);
 		}
 	}

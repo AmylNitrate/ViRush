@@ -42,27 +42,22 @@ public class Turret : MonoBehaviour
 		{
 		case 1:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBullet, 5f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBullet, 5f, 40, 1f);
 
 			break;
 		case 2:
 			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBullet, 10f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBullet, 10f, 40, 0.5f);
 
 			break;
 		case 3:
 			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBullet, 15f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBig, 10f, 80, 1f);
 
 			break;
 		case 4:
 			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBig, 10f, 50);
-
-			break;
-		case 5:
-			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBig, 15f, 50);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (OBig, 15f, 80, 0.5f);
 
 			break;
 		default:
@@ -73,27 +68,22 @@ public class Turret : MonoBehaviour
 		switch (BStrength) {
 		case 1:
 			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBullet, 5f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBullet, 5f, 40, 1f);
 
 			break;
 		case 2:
 			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBullet, 10f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBullet, 10f, 40, 0.5f);
 
 			break;
 		case 3:
 			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBullet, 15f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBig, 10f, 80, 1f);
 
 			break;
 		case 4:
 			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBig, 10f, 50);
-
-			break;
-		case 5:
-			
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBig, 15f, 50);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (BBig, 15f, 80, 0.5f);
 
 			break;
 		default:
@@ -105,27 +95,22 @@ public class Turret : MonoBehaviour
 		{
 		case 1:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBullet, 5f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBullet, 5f, 40, 1f);
 
 			break;
 		case 2:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBullet, 10f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBullet, 10f, 40, 0.5f);
 
 			break;
 		case 3:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBullet, 15f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBig, 10f, 80, 1f);
 
 			break;
 		case 4:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBig, 10f, 50);
-
-			break;
-		case 5:
-
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBig, 15f, 50);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (GBig, 15f, 80, 0.5f);
 
 			break;
 		default:
@@ -137,27 +122,22 @@ public class Turret : MonoBehaviour
 		{
 		case 1:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBullet, 5f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBullet, 5f, 40, 1f);
 
 			break;
 		case 2:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBullet, 10f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBullet, 10f, 40, 0.5f);
 
 			break;
 		case 3:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBullet, 15f, 25);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBig, 10f, 80, 1f);
 
 			break;
 		case 4:
 
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBig, 10f, 50);
-
-			break;
-		case 5:
-
-			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBig, 15f, 50);
+			barrel.gameObject.GetComponent<Barrel> ().InstantiateBullet (PBig, 15f, 80, 0.5f);
 
 			break;
 		default:

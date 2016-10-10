@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using GameSparks.Api;
+using GameSparks.Core;
 
 public class GameController : MonoBehaviour {
 
@@ -13,7 +15,7 @@ public class GameController : MonoBehaviour {
 	public GameObject[] upgradeButtons;
 	public GameObject intermission, setTurrets, failed, warning;
 
-	Text textRef2, textRef3, textRef4, textRef5;
+	Text textRef2, textRef3, textRef4, textRef5, textRef6;
 	Text Otext, Btext, Ptext, Gtext;
 
 	public int tempO, tempP, tempG, tempB, tempPoints;
@@ -21,16 +23,19 @@ public class GameController : MonoBehaviour {
 	public int parasitesEliminated, tempParElim;
 	int spawnAmount;
 	int totalLossAmount;
+	public string timeS;
+	bool isAuthenticated;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+
 		textRef2 = GameObject.Find ("ParaElimValue").GetComponent<Text> ();
 		textRef3 = GameObject.Find ("WaveValue").GetComponent<Text> ();
 		textRef4 = GameObject.Find ("PointsValue").GetComponent<Text> ();
 		textRef5 = GameObject.Find ("LossCounter").GetComponent<Text> ();
+		textRef6 = GameObject.Find ("TimeScale").GetComponent<Text> ();
 		Otext = GameObject.Find ("OrangeElimValue").GetComponent<Text> ();
 		Btext = GameObject.Find ("BlueElimValue").GetComponent<Text> ();
 		Ptext = GameObject.Find ("PinkElimValue").GetComponent<Text> ();
@@ -42,6 +47,7 @@ public class GameController : MonoBehaviour {
 
 		spawnAmount = 40;
 		totalLossAmount = 20;
+		timeS = "1x";
 
 		Data.control.Lives = 3;
 		Data.control.Wave = 1;
@@ -58,11 +64,15 @@ public class GameController : MonoBehaviour {
 			SelectionTurrets [i].SetActive (false);
 		}
 
+		Data.control.PlayerID = GeneratePlayerID ();
+		AuthenticatePlayer ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		//if 40 virus' have been spawned, then stop spawning
 		if (Data.control.SpawnCount >= spawnAmount) 
 		{
 			for (int i = 0; i < 4; i++) 
@@ -70,6 +80,8 @@ public class GameController : MonoBehaviour {
 				waypoints [i].GetComponent<WayPoint> ().CancelSpawn ();
 			}
 		}
+
+		//if all spawned virus' have been destroyed, then reset and go to next wave
 		if (Data.control.SpawnDestroy >= spawnAmount) 
 		{
 			ResetWaypointAndBarrel ();
@@ -77,46 +89,59 @@ public class GameController : MonoBehaviour {
 			intermission.SetActive (true);
 
 			ResetTurret ();
+			Debug.Log ("Ovir: " + Data.control.Ovir);
+			Debug.Log ("Bvir: " + Data.control.Bvir);
+			Debug.Log ("Gvir: " + Data.control.Gvir);
+			Debug.Log ("Pvir: " + Data.control.Pvir);
+			Data.control.series1Data.Add (new Vector2(Data.control.Wave, (Data.control.Ovir/40) * 100));
+			Data.control.series2Data.Add (new Vector2(Data.control.Wave, (Data.control.Bvir/40) * 100));
+			Data.control.series3Data.Add (new Vector2(Data.control.Wave, (Data.control.Gvir/40) * 100));
+			Data.control.series4Data.Add (new Vector2(Data.control.Wave, (Data.control.Pvir/40) * 100));
+
+			ResetValues ();
 
 			Data.control.Wave++;
-			Data.control.SpawnCount = 0;
-			Data.control.SpawnDestroy = 0;
-			Data.control.LossAmount = totalLossAmount;
+
 
 		}
+
+		//if 20 virus' get through your defence, then reset entire wave
 		if (Data.control.LossAmount <= 0) 
 		{
-			ResetWaypointAndBarrel ();
-			ResetTurret ();
-			warning.SetActive (true);
-			Data.control.SpawnCount = 0;
-			Data.control.SpawnDestroy = 0;
-			Data.control.LossAmount = totalLossAmount;
-			Data.control.Lives--;
-			parasitesEliminated = tempParElim;
-			Data.control.BlueVirus = tempB;
-			Data.control.GreenVirus = tempG;
-			Data.control.OrangeVirus = tempO;
-			Data.control.PinkVirus = tempP;
-			Data.control.Points = tempPoints;
+			if (Data.control.Lives <= 1) {
+				ResetWaypointAndBarrel ();
+				ResetTurret ();
+				failed.SetActive (true);
+				ResetValues ();
+				Data.control.Wave = 1;
+				Data.control.Points = 0;
+				Data.control.Lives = 3;
+				Data.control.OrangeVirus = 2;
+				Data.control.BlueVirus = 2;
+				Data.control.GreenVirus = 2;
+				Data.control.PinkVirus = 2;
+				parasitesEliminated = 0;
+				GameObject.Find ("Back_Button1").SetActive (false);
+				GameObject.Find ("Skip").SetActive (false);
+
+			} else {
+				ResetWaypointAndBarrel ();
+				ResetTurret ();
+				warning.SetActive (true);
+				Data.control.Lives--;
+				ResetValues ();
+				parasitesEliminated = tempParElim;
+				Data.control.BlueVirus = tempB;
+				Data.control.GreenVirus = tempG;
+				Data.control.OrangeVirus = tempO;
+				Data.control.PinkVirus = tempP;
+				Data.control.Points = tempPoints;
+				GameObject.Find ("Back_Button1").SetActive (false);
+				GameObject.Find ("Skip").SetActive (false);
+			}
+
 		}
-		if (Data.control.Lives <= 0) 
-		{
-			ResetWaypointAndBarrel ();
-			ResetTurret ();
-			failed.SetActive (true);
-			Data.control.Wave = 1;
-			Data.control.SpawnCount = 0;
-			Data.control.SpawnDestroy = 0;
-			Data.control.LossAmount = totalLossAmount;
-			Data.control.Points = 0;
-			Data.control.Lives = 3;
-			Data.control.OrangeVirus = 2;
-			Data.control.BlueVirus = 2;
-			Data.control.GreenVirus = 2;
-			Data.control.PinkVirus = 2;
-			parasitesEliminated = 0;
-		}
+			
 
 		SetTexts ();
 
@@ -234,21 +259,86 @@ public class GameController : MonoBehaviour {
 
 	}
 
+	public void ResetValues()
+	{
+		Data.control.SpawnCount = 0;
+		Data.control.SpawnDestroy = 0;
+		Data.control.LossAmount = totalLossAmount;
+		Data.control.Ovir = 0;
+		Data.control.Bvir = 0;
+		Data.control.Gvir = 0;
+		Data.control.Pvir = 0;
+		timeS = "1x";
+	}
+
 	public void SetTexts()
 	{
 		textRef2.text = parasitesEliminated.ToString ();
 		textRef3.text = Data.control.Wave.ToString ();
 		textRef4.text = Data.control.Points.ToString () + "/50";
 		textRef5.text = Data.control.LossAmount.ToString ();
+		textRef6.text = timeS;
 		Otext.text = Data.control.OrangeVirus.ToString ();
 		Ptext.text = Data.control.PinkVirus.ToString ();
 		Gtext.text = Data.control.GreenVirus.ToString ();
 		Btext.text = Data.control.BlueVirus.ToString ();
 	}
 
-	public void FastForward(float speed)
+	public void FastForward()
 	{
-		Time.timeScale = speed;
+
+		if (Time.timeScale == 1) {
+			Time.timeScale = 3;
+			timeS = "2x";
+		}
+		else
+		{
+			Time.timeScale = 1;
+			timeS = "1x";
+		}
 	}
+
+	public void Pause()
+	{
+		if (Time.timeScale >= 1) {
+			Time.timeScale = 0;
+			timeS = "0";
+		}
+		else
+		{
+			Time.timeScale = 1;
+			timeS = "1x";
+		}
+	}
+	public void UnPause()
+	{
+		Time.timeScale = 1;
+		timeS = "1x";
+	}
+
+	string GeneratePlayerID()
+	{
+		string temp;
+		int rand = UnityEngine.Random.Range (0, 100000);
+		temp = Application.systemLanguage + Application.platform.ToString () + System.DateTime.Now + rand.ToString ();
+		return temp;
+	}
+
+	void AuthenticatePlayer()
+	{
+		if (!isAuthenticated) {
+			Debug.Log ("calling");
+			new GameSparks.Api.Requests.DeviceAuthenticationRequest ().SetDisplayName (Data.control.PlayerID).Send ((response) => {
+				if (!response.HasErrors) {
+					Debug.Log ("Device Authenticated...");
+					isAuthenticated = true;
+				} else {
+					Debug.Log ("Error Authenticating Device...");
+					isAuthenticated = false;
+				}
+			});
+		}
+	}
+
 
 }

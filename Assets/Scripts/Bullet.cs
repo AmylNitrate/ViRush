@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour {
 		if (col.gameObject.name.Equals(_target)) 
 		{
 			col.gameObject.GetComponent<Virus> ().DecreaseHealth (damageAmount);
+
 			Destroy (gameObject);
 
 		} else

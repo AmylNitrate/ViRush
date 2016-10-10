@@ -8,6 +8,7 @@ public class Barrel : MonoBehaviour {
 
 	public List<GameObject> bullets = new List<GameObject>();
 	public List<float> speeds = new List<float>();
+	public List<float> coolDowns = new List<float> ();
 	public List<int> damages = new List<int>();
 
 	public AudioClip clip;
@@ -28,11 +29,12 @@ public class Barrel : MonoBehaviour {
 		cooldown -= Time.deltaTime;
 	}
 
-	public void InstantiateBullet(GameObject bulletType, float SpeedNum, int DamageNum)
+	public void InstantiateBullet(GameObject bulletType, float SpeedNum, int DamageNum, float coolD)
 	{
 		bullets.Add(bulletType);
 		speeds.Add (SpeedNum);
 		damages.Add (DamageNum);
+		coolDowns.Add (coolD);
 	}
 
 	public void ClearList()
@@ -62,8 +64,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 				}
 
@@ -81,8 +83,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 				}
 				break;
@@ -98,8 +100,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 				}
 				break;
@@ -115,8 +117,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 
 				}
@@ -133,8 +135,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 
 				}
@@ -152,8 +154,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 
 				}
@@ -170,8 +172,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 
 				}
@@ -188,8 +190,8 @@ public class Barrel : MonoBehaviour {
 						bulletSpawned.GetComponent<Bullet> ().damageAmount = damages[i];
 						bulletSpawned.GetComponent<Bullet> ().speed = speeds[i];
 						source.PlayOneShot (clip);
-						Debug.Log("Bullet: " + bulletSpawned.name + " Damage & Speed: " + damages[i] + ", " + speeds[i]);
-						cooldown = 1;
+						Debug.Log("Bullet: " + bulletSpawned.name + " D: " + damages[i] + " S: " + speeds[i] + " C: " + coolDowns[i]);
+						cooldown = coolDowns[i];
 					}
 
 				}
