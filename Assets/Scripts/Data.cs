@@ -35,6 +35,9 @@ public class Data : MonoBehaviour {
 
 	public string PlayerID;
 
+	//store turret selection
+	public List<string> TurretSelects;
+
 
 	// Use this for initialization
 	void Awake ()
@@ -63,7 +66,6 @@ public class Data : MonoBehaviour {
 
 		PlayerData _data = new PlayerData();
 		_data.wave = Wave;
-		_data.points = Points;
 
 
 		bf.Serialize(file, _data);
@@ -80,7 +82,6 @@ public class Data : MonoBehaviour {
 			file.Close();
 
 			Wave = _data.wave;
-			Points = _data.points;
 
 	
 		}
@@ -104,13 +105,11 @@ public class Data : MonoBehaviour {
 		_ViRushData.BSurv = BlueVirus;
 		_ViRushData.PSurv = PinkVirus;
 
+		_ViRushData.TurretSelections = TurretSelects;
+
 		_ViRushData.lives = Lives;
 		_ViRushData.spawnCounter = SpawnCount;
 
-		_ViRushData.series1Data = series1Data;
-		_ViRushData.series2Data = series2Data;
-		_ViRushData.series3Data = series3Data;
-		_ViRushData.series4Data = series4Data;
 
 		LogEventRequest request = new LogEventRequest ();
 		request.SetEventKey ("PData");
@@ -133,7 +132,11 @@ class PlayerData
 {
 	public string playerId;
 
-	public int wave, points;
+	public int wave;
+
+	public int lives;
+
+	public int spawnCounter;
 
 	//stores number of virus' spawned in wave
 	public float OSpawn, BSpawn, GSpawn, PSpawn;
@@ -141,12 +144,7 @@ class PlayerData
 	//stores number of virus' surviving a wave
 	public int OSurv, BSurv, GSurv, PSurv;
 
-	//stores the wave# and Prop of Viruses for each virus.
-	public List<Vector2> series1Data, series2Data, series3Data, series4Data;
-
-	public int spawnCounter;
-
-	public int lives;
-
+	//store turret selection
+	public List<string> TurretSelections;
 
 }

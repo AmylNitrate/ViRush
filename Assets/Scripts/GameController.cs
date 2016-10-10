@@ -97,6 +97,7 @@ public class GameController : MonoBehaviour {
 			ResetTurret ();
 			ResetValues ();
 			Data.control.Wave++;
+			Data.control.TurretSelects.Clear ();
 
 
 		}
@@ -110,6 +111,8 @@ public class GameController : MonoBehaviour {
 			Data.control.series4Data.Add (new Vector2(Data.control.Wave, (Data.control.Pvir/40) * 100));
 
 			Data.control.SaveToGameSparks();
+
+			Data.control.TurretSelects.Clear ();
 
 			if (Data.control.Lives <= 1) {
 				ResetWaypointAndBarrel ();
@@ -144,7 +147,7 @@ public class GameController : MonoBehaviour {
 				GameObject.Find ("Back_Button1").SetActive (false);
 				GameObject.Find ("Skip").SetActive (false);
 			}
-
+		
 		}
 			
 

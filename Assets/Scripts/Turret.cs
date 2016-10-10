@@ -30,7 +30,7 @@ public class Turret : MonoBehaviour
 		GBig = (GameObject)GObj;
 
 	}
-	// Update is called once per frame
+
 	public void SetBullet () 
 	{
 		OStrength = turret.gameObject.GetComponent<VirusSelect> ().OStrength;

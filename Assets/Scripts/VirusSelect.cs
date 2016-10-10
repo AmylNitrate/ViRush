@@ -92,6 +92,8 @@ public class VirusSelect : MonoBehaviour {
 		}
 
 		if (virus == 1) {
+			Data.control.TurretSelects.Add (gameObject.name);
+			Data.control.TurretSelects.Add ("OrangeVirus");
 			if (slotNumber == 4) 
 			{
 				if (slotAvailable >= 1) 
@@ -136,6 +138,8 @@ public class VirusSelect : MonoBehaviour {
 		}
 
 		if (virus == 2) {
+			Data.control.TurretSelects.Add (gameObject.name);
+			Data.control.TurretSelects.Add ("BlueVirus");
 			if (slotNumber == 4) {
 				if (slotAvailable >= 1) {
 					SlotOne.gameObject.GetComponent<Image> ().color = new Color32 (38, 86, 150, 200);
@@ -168,6 +172,8 @@ public class VirusSelect : MonoBehaviour {
 
 		}
 		if (virus == 3) {
+			Data.control.TurretSelects.Add (gameObject.name);
+			Data.control.TurretSelects.Add ("GreenVirus");
 			if (slotNumber == 4) {
 				if (slotAvailable >= 1) {
 					SlotOne.gameObject.GetComponent<Image> ().color = new Color32 (0, 104, 55, 200);
@@ -200,6 +206,8 @@ public class VirusSelect : MonoBehaviour {
 
 		}
 		if (virus == 4) {
+			Data.control.TurretSelects.Add (gameObject.name);
+			Data.control.TurretSelects.Add ("PinkVirus");
 			if (slotNumber == 4) {
 				if (slotAvailable >= 1) {
 					SlotOne.gameObject.GetComponent<Image> ().color = new Color32 (172, 32, 105, 200);
