@@ -18,7 +18,7 @@ public class Virus : MonoBehaviour
 	void Start()
 	{
 		lastWaypointSwitchTime = Time.time;
-		health = 60 + (Data.control.Wave * 5);
+		health = 50 + (Data.control.Wave * 5);
 		Debug.Log ("Virus Health = " + health);
 	}
 
@@ -80,7 +80,7 @@ public class Virus : MonoBehaviour
 
 		if (health <= 0) 
 		{
-			GameObject.Find("GameManager").GetComponent<GameController>().parasitesEliminated += 1;
+			Data.control.ParasitesEliminated += 1;
 			Data.control.Points += 1;
 			Data.control.SpawnDestroy++;
 			deathPos = gameObject.transform.position;

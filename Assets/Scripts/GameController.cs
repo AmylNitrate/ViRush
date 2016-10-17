@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System;
 using GameSparks.Api;
 using GameSparks.Core;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -20,12 +21,11 @@ public class GameController : MonoBehaviour {
 
 	public int tempO, tempP, tempG, tempB, tempPoints;
 
-	public int parasitesEliminated, tempParElim;
+	public int tempParElim;
 	int spawnAmount;
 	int totalLossAmount;
 	public string timeS;
 	bool isAuthenticated;
-
 
 	// Use this for initialization
 	void Start () 
@@ -53,11 +53,14 @@ public class GameController : MonoBehaviour {
 		Data.control.Wave = 1;
 		Data.control.LossAmount = 20;
 		Data.control.Points = 0;
+		Data.control.ParasitesEliminated = 0;
 		Data.control.BlueVirus = 2;
 		Data.control.GreenVirus = 2;
 		Data.control.PinkVirus = 2;
 		Data.control.OrangeVirus = 2;
 		Data.control.NotSet = false;
+
+		Data.control.Load ();
 
 		for (int i = 0; i < 4; i++) 
 		{
@@ -98,6 +101,7 @@ public class GameController : MonoBehaviour {
 			ResetValues ();
 			Data.control.Wave++;
 			Data.control.TurretSelects.Clear ();
+			Data.control.Save ();
 
 
 		}
@@ -115,6 +119,11 @@ public class GameController : MonoBehaviour {
 			Data.control.TurretSelects.Clear ();
 
 			if (Data.control.Lives <= 1) {
+				Data.control.series1Data.Clear ();
+				Data.control.series2Data.Clear ();
+				Data.control.series3Data.Clear ();
+				Data.control.series4Data.Clear ();
+				Data.control.DeleteFile ();
 				ResetWaypointAndBarrel ();
 				ResetTurret ();
 				failed.SetActive (true);
@@ -126,7 +135,7 @@ public class GameController : MonoBehaviour {
 				Data.control.BlueVirus = 2;
 				Data.control.GreenVirus = 2;
 				Data.control.PinkVirus = 2;
-				parasitesEliminated = 0;
+				Data.control.ParasitesEliminated = 0;
 				GameObject.Find ("Back_Button1").SetActive (false);
 				GameObject.Find ("Skip").SetActive (false);
 
@@ -138,7 +147,7 @@ public class GameController : MonoBehaviour {
 				warning.SetActive (true);
 				Data.control.Lives--;
 				ResetValues ();
-				parasitesEliminated = tempParElim;
+				Data.control.ParasitesEliminated = tempParElim;
 				Data.control.BlueVirus = tempB;
 				Data.control.GreenVirus = tempG;
 				Data.control.OrangeVirus = tempO;
@@ -146,6 +155,7 @@ public class GameController : MonoBehaviour {
 				Data.control.Points = tempPoints;
 				GameObject.Find ("Back_Button1").SetActive (false);
 				GameObject.Find ("Skip").SetActive (false);
+				Data.control.Save ();
 			}
 		
 		}
@@ -191,7 +201,7 @@ public class GameController : MonoBehaviour {
 		} 
 		else if(!Data.control.NotSet)
 		{
-			tempParElim = parasitesEliminated;
+			tempParElim = Data.control.ParasitesEliminated;
 			tempB = Data.control.BlueVirus;
 			tempG = Data.control.GreenVirus;
 			tempO = Data.control.OrangeVirus;
@@ -281,7 +291,7 @@ public class GameController : MonoBehaviour {
 
 	public void SetTexts()
 	{
-		textRef2.text = parasitesEliminated.ToString ();
+		textRef2.text = Data.control.ParasitesEliminated.ToString ();
 		textRef3.text = Data.control.Wave.ToString ();
 		textRef4.text = Data.control.Points.ToString () + "/50";
 		textRef5.text = Data.control.LossAmount.ToString ();

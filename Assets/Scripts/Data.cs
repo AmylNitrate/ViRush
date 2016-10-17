@@ -31,6 +31,7 @@ public class Data : MonoBehaviour {
 	public int SpawnDestroy;
 	public int LossAmount, Lives;
 	public int Points;
+	public int ParasitesEliminated;
 	public bool NotSet;
 
 	public string PlayerID;
@@ -66,10 +67,18 @@ public class Data : MonoBehaviour {
 
 		PlayerData _data = new PlayerData();
 		_data.wave = Wave;
+		_data.points = Points;
+		_data.lives = Lives;
+		_data.OSurv = OrangeVirus;
+		_data.BSurv = BlueVirus;
+		_data.GSurv = GreenVirus;
+		_data.PSurv = PinkVirus;
+		_data.parasitesEliminated = ParasitesEliminated;
 
 
 		bf.Serialize(file, _data);
 		file.Close();
+		Debug.Log( "file saved" );
 	}
 
 	public void Load()
@@ -82,8 +91,31 @@ public class Data : MonoBehaviour {
 			file.Close();
 
 			Wave = _data.wave;
+			Points = _data.points;
+			Lives = _data.lives;
+			OrangeVirus = _data.OSurv;
+			BlueVirus = _data.BSurv;
+			GreenVirus = _data.GSurv;
+			PinkVirus = _data.PSurv;
+			ParasitesEliminated = _data.parasitesEliminated;
+			Debug.Log( "load success" );
 
 	
+		}
+	}
+
+	public void DeleteFile() 
+	{
+
+		// check if file exists
+		if ( !File.Exists( Application.persistentDataPath + "/playerInfo.dat" ) )
+		{
+			Debug.Log( "no file exists" );
+		}
+		else
+		{
+			Debug.Log(" file exists, deleting..." );
+			File.Delete(Application.persistentDataPath + "/playerInfo.dat");
 		}
 	}
 
@@ -130,11 +162,16 @@ public class Data : MonoBehaviour {
 [Serializable]
 class PlayerData
 {
+	
 	public string playerId;
 
 	public int wave;
 
+	public int points;
+
 	public int lives;
+
+	public int parasitesEliminated;
 
 	public int spawnCounter;
 
